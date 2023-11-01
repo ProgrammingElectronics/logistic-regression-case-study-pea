@@ -1,1 +1,3 @@
-# A Case Study of applying Logistic Regression to assist business decisions
+# Helper functions for apply Logistic Regression with Gradient Descent
+
+
