@@ -18,32 +18,41 @@ class LogisticRegressionTests(unittest.TestCase):
         self.assertEqual(linear_regression(x, w, b), 10)
 
     def test_logistic_regression_loss_function(self):
-        
+
         # Value for making prediction sigmoid(w⋅x+b)
-        x = np.array([1,3])
-        w = np.array([2,1])
+        x = np.array([1, 3])
+        w = np.array([2, 1])
         b = -5
         # target value
         target = 1
-        
-        test_loss = logistic_regression_loss(x,w,b,target)
+
+        test_loss = logistic_regression_loss(x, w, b, target)
         actual_loss = -np.log(0.5)
 
         self.assertEqual(test_loss, actual_loss)
-        
+
     def test_logistic_regression_cost(self):
 
         # Value for making prediction sigmoid(w⋅x+b) - result for both is 0.5
-        X = np.array([[0.5, 1.5], [1,1], [1.5, 0.5], [3, 0.5], [2, 2], [1, 2.5]])  #(m,n)
-        w = np.array([1,1])
+        X = np.array([[0.5, 1.5], [1, 1], [1.5, 0.5], [
+                     3, 0.5], [2, 2], [1, 2.5]])  # (m,n)
+        w = np.array([1, 1])
         b = -3
         y = np.array([0, 0, 0, 1, 1, 1])
-        
+
         test_cost = 0.36686678640551745
 
-        self.assertEqual(logistic_regression_cost(X,w,b,y),test_cost)
-
+        self.assertEqual(logistic_regression_cost(X, w, b, y), test_cost)
 
     def test_compute_logistic_gradient_descent(self):
+        # Value for making prediction sigmoid(w⋅x+b) - result for both is 0.5
+        X = np.array([[0.5, 1.5], [1, 1], [1.5, 0.5], [3, 0.5], [2, 2], [1, 2.5]])  # (m,n)
+        w = np.zeros_like(X[0])
+        b = 0
+        y = np.array([0, 0, 0, 1, 1, 1])
+        lr = 0.1
+        reg = 0
+        epochs = 9001
+        test_gradient = 0.019030137124109114
         
-        self.assertEqual(logistic_regression_cost(X,w,b,y),test_cost)
+        self.assertEqual(compute_logistic_gradient_descent(X, w, b, y,lr,reg, epochs), test_gradient)
