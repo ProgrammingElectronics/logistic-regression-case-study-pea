@@ -1,3 +1,3 @@
-# Helper functions for apply Logistic Regression with Gradient Descent
+# Helper functions for applying Logistic Regression with Gradient Descent
 
 
